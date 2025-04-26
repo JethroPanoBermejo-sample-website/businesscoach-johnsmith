@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Smith - Business Coach</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+
+        .navbar.fixed-top {
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #3E2723;
+        }
+        .navbar-nav .nav-link {
+            color: #3E2723;
+            font-weight: bold;
+            margin-right: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #666;
+        }
+        .contact-btn {
+            border: 1px solid #333;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+        }
+        .contact-btn:hover {
+            background-color: #3E2723;
+            color: #e0e0e0 !important;
+        }
+
+        /* Enhanced Hero Section Styles */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end; /* Changed to align items to bottom */
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow: hidden;
+            padding-top: 80px;
+            padding-bottom: 0; /* Remove bottom padding */
+        }
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('IMG/2.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        .business-philosophy {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #e3edf7;
+            font-weight: 600;
+        }
+        .hero-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #e3edf7;
+            position: relative;
+        }
+        .hero-text::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #3E2723;;
+        }
+        .hero-description {
+            max-width: 600px;
+            margin-bottom: 35px;
+            color: #e3edf7;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .hero-image-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;/* Align image to bottom */
+        }
+        .hero-image {
+            max-width: 120%; /* Increased from 100% */
+            width: 120%; /* Added to ensure scaling */
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            margin-right: -10%; /* Pull image slightly out of container */
+        }
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+       
+       .hero-description {
+            margin-bottom: 10rem;
+        }
+
+     /* About Section Styles - Fixing Image Gaps */
+        .about-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .about-image {
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .left-image,
+        .center-image {
+            width: 80%;
+            height: 60vh;
+            max-width: 400px;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding: 0 30px;
+        }
+
+        .about-business-philosophy {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #5D4037; /* Rich brown color */
+            font-weight: 600;
+        }
+        .about-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #3E2723; /* Darker brown color */
+            position: relative;
+        }
+
+        .about-text::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #795548; /* Brown accent color */
+        }
+
+        .about-description {
+            max-width: 600px;
+            margin-bottom: 35px;
+            color: #4E342E; /* Slightly lighter brown for description */
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+    /* Courses Section Enhanced Styles */
+        .courses-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            color: #795548;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #3E2723;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #795548;
+        }
+
+        .section-description {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #4E342E;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .course-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image {
+            transform: scale(1.1);
+        }
+
+        .course-content {
+            padding: 40px;
+        }
+
+        .course-category {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            color: #795548;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .course-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #3E2723;
+            margin-bottom: 20px;
+        }
+
+        .course-description {
+            color: #4E342E;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .course-highlights {
+            margin-bottom: 30px;
+        }
+
+        .course-highlights li {
+            margin-bottom: 10px;
+            color: #4E342E;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .course-highlights .icon-check {
+            position: absolute;
+            left: 0;
+            color: #795548;
+            font-weight: bold;
+        }
+
+        .course-cta {
+            background-color: #795548;
+            border-color: #795548;
+            color: white;
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+        }
+
+        .course-cta:hover {
+            background-color: #3E2723;
+            transform: translateY(-5px);
+        }
+
+        /* Work with Me CSS*/
+        .work-with-me-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .coaching-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .coaching-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .coaching-icon {
+            font-size: 3rem;
+            color: #795548;
+            margin-bottom: 20px;
+        }
+
+        .coaching-title {
+            font-family: 'Playfair Display', serif;
+            color: #3E2723;
+            margin-bottom: 15px;
+        }
+
+        .coaching-highlights {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .coaching-highlights li {
+            color: #4E342E;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .coaching-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #795548;
+        }
+
+        .coaching-cta {
+            background-color: #795548;
+            border-color: #795548;
+            color: white;
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+        }
+
+        .coaching-cta:hover {
+            background-color: #3E2723;
+            transform: translateY(-5px);
+        }
+
+        .work-commitment-title {
+            font-family: 'Playfair Display', serif;
+            color: #3E2723;
+            margin-bottom: 20px;
+        }
+
+        .commitment-list {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .commitment-list li {
+            background-color: rgba(121, 85, 72, 0.1);
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            color: #4E342E;
+        }
+
+        /* Blog Section CSS */
+        .blog-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-category {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            color: #795548;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #3E2723;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #4E342E;
+            margin-bottom: 15px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+        }
+
+        .blog-date {
+            color: #795548;
+            font-size: 0.9rem;
+        }
+
+        .blog-read-more {
+            color: #3E2723;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .blog-read-more:hover {
+            color: #795548;
+        }
+
+        .featured-post {
+            height: 100%;
+        }
+
+        .featured-post .blog-title {
+            font-size: 2.2rem;
+        }
+
+        .blog-archive-btn {
+            background-color: #795548;
+            border-color: #795548;
+            color: white;
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+        }
+
+        .blog-archive-btn:hover {
+            background-color: #3E2723;
+            transform: translateY(-5px);
+        }
+
+            /* Hover effects for social icons */
+            .social-icon:hover {
+            color: #795548 !important;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            body {
+                padding-top: 60px; /* Adjust for smaller screens */
+            }
+            
+            .navbar-brand {
+                position: static;
+                transform: none;
+            }
+            .navbar-collapse {
+                margin-top: 10px;
+            }
+            .hero-section {
+                text-align: center;
+                padding-top: 100px;
+            }
+            .hero-text {
+                font-size: 2.8rem;
+            }
+            .hero-description {
+                max-width: 100%;
+                margin-bottom: 0;
+            }
+            .hero-image {
+                max-width: 100%;
+                width: 100%;
+                margin-right: 0;
+                margin-top: 2rem;
+            }
+            .text-start, .text-end {
+                text-align: center !important;
+            }
+
+            .hero-text::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .about-section {
+            text-align: center;
+            }
+
+            .about-content {
+                padding: 0 15px;
+            }
+
+            .about-text {
+                font-size: 2.8rem;
+            }
+
+            .about-description {
+                max-width: 100%;
+            }
+
+            .about-text::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .left-image,
+            .center-image {
+                width: 70%;
+                height: auto;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+
+           .section-title {
+            font-size: 2.8rem;
+            }
+
+            .course-image-wrapper {
+                height: 300px;
+            }
+
+            .course-content {
+                padding: 30px;
+            }
+
+            .course-title {
+                font-size: 2rem;
+            }
+
+            .coaching-card {
+            margin-bottom: 30px;
+            }
+
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .featured-post .blog-title {
+                font-size: 1.8rem;
+            }
+
+            .blog-image-wrapper {
+                height: 200px;
+            }
+
+            .contact-section {
+                text-align: center;
+            }
+            .contact-image-wrapper {
+                margin-bottom: 30px;
+            }
+            .contact-form-wrapper {
+                padding: 0 15px;
+            }
+            .section-title {
+                text-align: center;
+            }
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+            /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .footer-section {
+                text-align: center;
+            }
+            .social-icons {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text {
+                font-size: 2.2rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+            .hero-image {
+                max-width: 90%;
+            }
+
+            .about-text {
+            font-size: 2.2rem;
+            }
+
+            .about-description {
+                font-size: 1rem;
+            }
+
+            .left-image,
+            .center-image {
+                width: 90%;
+                max-width: 250px;
+                height: 40vh;
+            }
+
+            .section-title {
+            font-size: 2.2rem;
+            }
+
+            .course-image-wrapper {
+                height: 250px;
+            }
+
+            .course-content {
+                padding: 20px;
+            }
+
+            .course-title {
+                font-size: 1.8rem;
+            }
+
+            .course-description {
+                font-size: 1rem;
+            }
+
+            .blog-title {
+                font-size: 1.3rem;
+            }
+
+            .featured-post .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .blog-image-wrapper {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Previous Navbar Code Remains the Same) -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid px-4 position-relative">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand mx-auto" href="#">JOHN SMITH</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#myprograms">MY PROGRAMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#work">WORK WITH ME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">BLOG</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link contact-btn" href="#contact">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+            <div class="row align-items-end"> 
+                <div class="col-lg-6 text-start">
+                    <p class="business-philosophy">Your Business Coach</p>
+                    <h1 class="hero-text">HUMBLE,<br>confident. KIND.</h1>
+                    <p class="hero-description">Empowering entrepreneurs and business leaders to unlock their full potential through strategic coaching, mindful leadership, and transformative personal development.</p>
+                </div>
+                <div class="col-lg-6 text-end hero-image-container">
+                    <img src="IMG/1.png" alt="John Smith" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- About Me Section -->
+<section id="about" class="about-section">
+    <div class="container-fluid px-0">
+        <div class="row g-0 align-items-center"> 
+            <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                <img src="IMG/3.png" alt="About John Smith" class="about-image left-image">
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                <img src="IMG/4.png" alt="About John Smith" class="about-image center-image">
+            </div>
+            <div class="col-lg-4 text-start">
+                <div class="about-content">
+                    <p class="about-business-philosophy">A LITTLE ABOUT ME</p>
+                    <h2 class="about-text">Hey there!<br>My name is John Smith</h2>
+                    <p class="about-description">A business coach who's walked the challenging path of entrepreneurship. I've experienced the highs and lows, the self-doubt and breakthroughs. Now, I'm dedicated to helping entrepreneurs like you transform obstacles into opportunities. <br>
+                    <b>My approach is simple:</b> honest guidance, strategic thinking, and genuine support. I'm not here to give you a magic formula, but to help you unlock your own potential and create a business that truly reflects your vision</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Courses Section -->
+<section id="myprograms" class="courses-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <p class="section-subtitle">MY PROGRAMS</p>
+                <h2 class="section-title">Transformative Coaching Programs</h2>
+                <p class="section-description">Discover tailored coaching experiences designed to unlock your potential and drive extraordinary business growth.</p>
+            </div>
+        </div>
+
+        <!-- First Course: Breakthrough Entrepreneur Accelerator -->
+        <div class="course-card mb-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="course-image-wrapper">
+                        <img src="IMG/5.png" alt="Breakthrough Entrepreneur Accelerator" class="course-image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="course-content text-center">
+                        <p class="course-category">PROGRAM 1</p>
+                        <h3 class="course-title">Breakthrough Entrepreneur Accelerator</h3>
+                        <p class="course-description">A transformative 12-week intensive designed to turn your business vision into reality. This program is your blueprint for success, offering personalized coaching, strategic planning, and the mindset tools needed to overcome entrepreneurial challenges and achieve sustainable growth.</p>
+                        <ul class="course-highlights list-unstyled">
+                            <li><span class="text-highlight">✓</span> 1:1 Strategic Coaching Sessions</li>
+                            <li><span class="text-highlight">✓</span> Personalized Business Plan Development</li>
+                            <li><span class="text-highlight">✓</span> Mindset and Performance Coaching</li>
+                            <li><span class="text-highlight">✓</span> Exclusive Entrepreneur Network Access</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary course-cta">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Course: Leadership Mastery Intensive -->
+        <div class="course-card">
+            <div class="row align-items-center flex-lg-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="course-image-wrapper">
+                        <img src="IMG/7.png" alt="Leadership Mastery Intensive" class="course-image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="course-content text-center">
+                        <p class="course-category">PROGRAM 2</p>
+                        <h3 class="course-title">Leadership Mastery Intensive</h3>
+                        <p class="course-description">An 8-week transformative program designed to elevate your leadership potential. Develop an authentic leadership style, enhance communication skills, and build the emotional intelligence needed to inspire and lead with confidence.</p>
+                        <ul class="course-highlights list-unstyled">
+                            <li><span class="text-highlight">✓</span> Executive Coaching Sessions</li>
+                            <li><span class="text-highlight">✓</span> Leadership Assessment and Feedback</li>
+                            <li><span class="text-highlight">✓</span> Emotional Intelligence Training</li>
+                            <li><span class="text-highlight">✓</span> Personal Brand Development</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary course-cta">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Work With Me Section-->
+<section id="work" class="work-with-me-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <p class="section-subtitle">WORK WITH ME</p>
+                <h2 class="section-title">Your Transformation, My Commitment</h2>
+                <p class="section-description">Every entrepreneur's journey is unique. I offer multiple pathways to help you achieve your most ambitious business goals.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Coaching Approach Cards -->
+            <div class="col-md-4 mb-4">
+                <div class="coaching-card">
+                    <div class="coaching-icon">
+                        <i class="icon-individual-coaching"></i>
+                    </div>
+                    <h3 class="coaching-title">One-on-One Coaching</h3>
+                    <p class="coaching-description">Personalized, focused sessions designed to address your specific business challenges and unlock your potential.</p>
+                    <ul class="coaching-highlights">
+                        <li>Tailored Strategic Planning</li>
+                        <li>Confidential Consultation</li>
+                        <li>Intensive Personal Development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="coaching-card">
+                    <div class="coaching-icon">
+                        <i class="icon-group-workshops"></i>
+                    </div>
+                    <h3 class="coaching-title">Group Workshops</h3>
+                    <p class="coaching-description">Collaborative learning experiences that foster networking, shared insights, and collective growth.</p>
+                    <ul class="coaching-highlights">
+                        <li>Interactive Group Sessions</li>
+                        <li>Peer Learning Opportunities</li>
+                        <li>Comprehensive Business Strategies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="coaching-card">
+                    <div class="coaching-icon">
+                        <i class="icon-online-consulting"></i>
+                    </div>
+                    <h3 class="coaching-title">Online Consulting</h3>
+                    <p class="coaching-description">Flexible digital coaching options for entrepreneurs seeking convenient, high-impact guidance.</p>
+                    <ul class="coaching-highlights">
+                        <li>Virtual Strategy Sessions</li>
+                        <li>Flexible Scheduling</li>
+                        <li>Global Accessibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h3 class="work-commitment-title">My Commitment to You</h3>
+                <p class="work-commitment-description">
+                    When you choose to work with me, you're not just getting a coach – you're gaining a dedicated partner committed to your success. I promise:
+                </p>
+                <ul class="commitment-list">
+                    <li>Honest, Transparent Guidance</li>
+                    <li>Customized Strategies Tailored to Your Unique Goals</li>
+                    <li>Unwavering Support Through Challenges</li>
+                    <li>Proven Frameworks for Sustainable Growth</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary coaching-cta">Schedule a Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section -->
+<section id="blog" class="blog-section">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 text-center">
+                <p class="section-subtitle">INSIGHTS & INSPIRATION</p>
+                <h2 class="section-title">Business Growth Blog</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row">
+                    <!-- Blog Post 1 -->
+                    <div class="col-md-4 mb-4">
+                        <article class="blog-card">
+                            <div class="blog-image-wrapper">
+                                <img src="IMG/8.png" alt="Navigating Entrepreneurial Challenges" class="blog-image">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Biz</span>
+                                <h3 class="blog-title">Entrepreneurial Challenges</h3>
+                                <div class="blog-meta">
+                                    <span class="blog-date">May 15, 2024</span>
+                                    <a href="#" class="blog-read-more">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="col-md-4 mb-4">
+                        <article class="blog-card">
+                            <div class="blog-image-wrapper">
+                                <img src="IMG/9.png" alt="Strategic Business Planning" class="blog-image">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Plan</span>
+                                <h3 class="blog-title">Growth Techniques</h3>
+                                <div class="blog-meta">
+                                    <span class="blog-date">April 22, 2024</span>
+                                    <a href="#" class="blog-read-more">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="col-md-4 mb-4">
+                        <article class="blog-card">
+                            <div class="blog-image-wrapper">
+                                <img src="IMG/10.png" alt="Leadership Development" class="blog-image">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Lead</span>
+                                <h3 class="blog-title">Leadership Insights</h3>
+                                <div class="blog-meta">
+                                    <span class="blog-date">March 30, 2024</span>
+                                    <a href="#" class="blog-read-more">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Blog Section CTA -->
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-primary blog-archive-btn">View All Posts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 80px 0;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Contact Image Section -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="contact-image-wrapper text-center">
+                    <img src="IMG/13.png" alt="Reach Out" class="img-fluid contact-image" style="max-width: 90%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            
+            <!-- Contact Form Section -->
+            <div class="col-lg-6">
+                <div class="contact-form-wrapper">
+                    <h2 class="section-title mb-4" style="font-family: 'Playfair Display', serif; color: #3E2723; position: relative;">
+                        I'd Love to Say Hello
+                        
+                    </h2>
+                    <p class="mb-4" style="color: #4E342E;">Please fill out and submit our inquiry form below and one of our team members will be in contact within the next 48 hours.</p>
+                    
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label" style="color: #3E2723;">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required style="border-color: #795548;">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label" style="color: #3E2723;">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required style="border-color: #795548;">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="color: #3E2723;">Email Address</label>
+                            <input type="email" class="form-control" id="email" required style="border-color: #795548;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label" style="color: #3E2723;">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" style="border-color: #795548;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label" style="color: #3E2723;">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" required style="border-color: #795548;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="
+                            background-color: #795548;
+                            border-color: #795548;
+                            color: white;
+                            padding: 12px 24px;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            transition: all 0.4s ease;
+                        ">Send Message</button>
+                    </form>
+                    
+                    <div class="contact-info mt-4" style="color: #4E342E;">
+                        <p>Or email us directly at: <a href="mailto:contact@lindseatemplate.com" style="color: #3E2723; text-decoration: none;">contact@johnsmith.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section" style="
+    background-color: #3E2723;
+    color: #e0e0e0;
+    padding: 40px 0;
+">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Social Media Icons -->
+            <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+                <div class="social-icons">
+                    <a href="#" class="social-icon me-3" style="
+                        color: #e0e0e0;
+                        font-size: 1.5rem;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+                    ">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon me-3" style="
+                        color: #e0e0e0;
+                        font-size: 1.5rem;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+                    ">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon me-3" style="
+                        color: #e0e0e0;
+                        font-size: 1.5rem;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+                    ">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" style="
+                        color: #e0e0e0;
+                        font-size: 1.5rem;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+                    ">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="col-md-6 text-md-end text-center">
+                <p class="mb-0" style="
+                    font-size: 0.9rem;
+                    letter-spacing: 1px;
+                ">
+                    &copy; 2025 John Smith Business Coaching. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
